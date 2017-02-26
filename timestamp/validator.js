@@ -10,8 +10,9 @@ const formats = [
 ];
 
 function validateDate(date) {
+
   let utc, unix;
-  utc = moment.utc(date, formats, true);
+    utc = moment.utc(date, formats, true);
 
   if (utc.isValid()) {
     unix = utc.unix() * 1000;
@@ -21,7 +22,7 @@ function validateDate(date) {
 
   if (isNaN(date)) return {"error": "Invalid Date"};
 
-  utc = moment.utc(date);
+  utc = moment.utc(+date);
 
   if (utc.isValid()) {
     unix = +date;

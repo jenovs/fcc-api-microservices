@@ -39,7 +39,7 @@ describe('Date validator test', () => {
   describe('Unix dates', () => {
 
     it('Should parse 1488067200000', () => {
-      const res = validateDate(dates[0].unix);
+      const res = validateDate(1488067200000);
       expect(res).toBeAn('object');
       expect(res.utc).toBe('Sun, 26 Feb 2017 00:00:00 GMT')
     });
@@ -67,12 +67,6 @@ describe('Date validator test', () => {
 
     it('Should return error on empty input', () => {
       const res = validateDate();
-      expect(res).toBeAn('object');
-      expect(res.error).toBe('Invalid Date');
-    });
-
-    it('Should return error on \'\'', () => {
-      const res = validateDate('');
       expect(res).toBeAn('object');
       expect(res.error).toBe('Invalid Date');
     });
