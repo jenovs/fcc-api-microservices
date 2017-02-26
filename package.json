@@ -1,0 +1,23 @@
+{
+  "name": "FCC API Microservices",
+  "private": true,
+  "version": "1.0.0",
+  "description": "API challenges for freeCodeCamp Backend curriculum",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha **/*.test.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Viktors Jenovs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  }
+}
