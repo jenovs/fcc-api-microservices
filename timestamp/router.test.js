@@ -50,8 +50,20 @@ describe('Date validator test', () => {
       expect(res.utc).toBe('Mon, 17 Apr 3741 05:50:43 GMT')
     });
 
+    it('Should parse \'55896587443000\'', () => {
+      const res = validateDate('55896587443000');
+      expect(res).toBeAn('object');
+      expect(res.utc).toBe('Mon, 17 Apr 3741 05:50:43 GMT')
+    });
+
     it('Should parse -42', () => {
       const res = validateDate(-42);
+      expect(res).toBeAn('object');
+      expect(res.utc).toBe('Wed, 31 Dec 1969 23:59:59 GMT');
+    });
+
+    it('Should parse `-42`', () => {
+      const res = validateDate('-42');
       expect(res).toBeAn('object');
       expect(res.utc).toBe('Wed, 31 Dec 1969 23:59:59 GMT');
     });
@@ -59,13 +71,13 @@ describe('Date validator test', () => {
 
   describe('Invalid inputs', () => {
 
-    it('Should return error on \'abc\'', () => {
+    it('Should return error message on \'abc\'', () => {
       const res = validateDate('abc');
       expect(res).toBeAn('object');
       expect(res.error).toBe('Invalid Date');
     });
 
-    it('Should return error on empty input', () => {
+    it('Should return error message on empty input', () => {
       const res = validateDate();
       expect(res).toBeAn('object');
       expect(res.error).toBe('Invalid Date');
