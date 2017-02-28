@@ -1,0 +1,28 @@
+html {
+  height: 100vh;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+input {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  justify-content: center;
+}
