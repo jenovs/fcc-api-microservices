@@ -2,6 +2,13 @@ const router = require('express').Router();
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
+const supportedLangs = [
+  'hy', 'sq', 'ar', 'bg', 'ca', 'cn', 'hr', 'cs', 'da', 'nl',
+  'et', 'ph', 'fi', 'fr', 'ka', 'de', 'el', 'he', 'hu', 'id',
+  'it', 'lv', 'lt', 'mk', 'ms', 'no', 'pl', 'pt', 'ro', 'ru',
+  'sr', 'sk', 'sl', 'es', 'sv', 'th', 'tr', 'uk', 'vi'
+];
+
 function scrapeText(html) {
   let $ = cheerio.load(html);
   const text = $('div#Panes').text().split('\n');
@@ -43,7 +50,9 @@ router.use((req, res, next) => {
 })
 
 router.get('/:lang', (req, res) => {
-  fetch(`http://${req.params.lang}.lipsum.com`)
+  let lang = req.params.lang;
+  if (!~supportedLangs.indexOf(lang)) lang = 'en';
+  fetch(`http://${lang}.lipsum.com`)
     .then(res => res.text())
     .then(text => res.send(scrapeText(text)))
     .catch(e => console.log(e));
