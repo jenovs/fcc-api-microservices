@@ -1,0 +1,22 @@
+.link--small {
+  font-size: 0.8rem;
+}
+
+.project {
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  /*margin: auto;*/
+  padding: 0.5rem;
+  width: 80%;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  width: 20rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}

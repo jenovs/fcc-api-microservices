@@ -1,5 +1,6 @@
 require('./config/config');
 
+const path = require('path');
 const express = require('express');
 
 const mongoose = require('./mongoose');
@@ -9,10 +10,13 @@ const imagesearch = require('./image-search/router');
 const timestamp = require('./timestamp/router');
 const whoami = require('./header-parser/router');
 const shorturl = require('./url-shortener/router');
+const lipsum = require('./lipsum');
 
 const app = express();
 
 app.disable('x-powered-by');
+
+app.use(express.static(path.join(__dirname + '/public')));
 
 const { PORT } = process.env;
 
@@ -25,6 +29,8 @@ app.use('/api/whoami', whoami);
 app.use('/api/shorturl', shorturl);
 
 app.use('/api/imagesearch', imagesearch);
+
+app.use('/api/lipsum', lipsum);
 
 app.get('*', (req, res) => {
   res.send('Hello!')
