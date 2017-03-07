@@ -10,7 +10,7 @@ const imagesearch = require('./image-search/router');
 const timestamp = require('./timestamp/router');
 const whoami = require('./header-parser/router');
 const shorturl = require('./url-shortener/router');
-const lipsum = require('./lipsum');
+const lipsum = require('./lipsum/router');
 
 const app = express();
 
