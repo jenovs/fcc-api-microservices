@@ -37,6 +37,11 @@ function scrapeText(html) {
   return {description, translations};
 }
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+})
+
 router.get('/:lang', (req, res) => {
   fetch(`http://${req.params.lang}.lipsum.com`)
     .then(res => res.text())
