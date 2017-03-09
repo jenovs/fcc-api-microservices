@@ -19,7 +19,10 @@ router.post('/', (req, res) => {
       weather: weather.current_observation,
       forecast: forecast.forecast})
   })
-  .catch(e => console.log(e));
+  .catch(e => {
+    console.log(e);
+    res.status(400).send();
+  });
 });
 
 module.exports = router;

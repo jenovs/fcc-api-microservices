@@ -11,7 +11,6 @@ function getWeather(lat, lon, lang) {
     fetch(weatherUrl).then(res => res.json()),
     fetch(forecastUrl).then(res => res.json())
   ])
-  .catch(e => console.log(e));
 }
 
 module.exports = {
