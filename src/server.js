@@ -11,6 +11,7 @@ const timestamp = require('./timestamp/router');
 const whoami = require('./header-parser/router');
 const shorturl = require('./url-shortener/router');
 const lipsum = require('./lipsum/router');
+const weather = require('./weather/router');
 
 const app = express();
 
@@ -31,6 +32,8 @@ app.use('/api/shorturl', shorturl);
 app.use('/api/imagesearch', imagesearch);
 
 app.use('/api/lipsum', lipsum);
+
+app.use('/api/weather', weather);
 
 app.get('*', (req, res) => {
   res.send('Hello!')
