@@ -5,6 +5,8 @@ const { getWeather } = require('./api');
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'content-type');
   next();
 });
 
